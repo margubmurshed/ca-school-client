@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
 import logo from "../../assets/Images/cricketangon_cricket_school_logo.png";
 import { NavLink, Link } from "react-router-dom";
+import { authContext } from "../../providers/AuthProvider";
+import { FiLogOut } from "react-icons/fi";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
-  const user = true;
+  const { user, setUserLoading, logOut } = useContext(authContext);
+
+  const handleLogOut = async () => {
+    try {
+      await logOut();
+      Swal.fire("Success!", "Signed Out Successfully!", "success");
+    } catch (err) {
+      setUserLoading(false);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: err.message,
+      });
+    }
+  };
   const commonLinks = [
     { id: 1, text: "Home", path: "/" },
     { id: 2, text: "Instructors", path: "/instructors" },
@@ -15,9 +32,7 @@ const Navbar = () => {
 
   const linksJSX = links.map(({ id, text, path }) => (
     <li key={id}>
-      <NavLink to={path} >
-        {text}
-      </NavLink>
+      <NavLink to={path}>{text}</NavLink>
     </li>
   ));
   return (
@@ -55,13 +70,22 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{linksJSX}</ul>
         </div>
-        <div className="navbar-end">
+        <div className="navbar-end space-x-1">
           {user ? (
-            <div className="avatar">
-              <div className="w-12 rounded-full">
-                <img src="https://img.freepik.com/free-photo/man-wearing-t-shirt-gesturing_23-2149393645.jpg" />
+            <>
+              <div className="avatar">
+                <div className="w-12 rounded-full">
+                  <img src="https://img.freepik.com/free-photo/man-wearing-t-shirt-gesturing_23-2149393645.jpg" />
+                </div>
               </div>
-            </div>
+              <button
+                className="btn btn-outline border-gray-300 btn-sm"
+                title="log out"
+                onClick={handleLogOut}
+              >
+                <FiLogOut size={20} />
+              </button>
+            </>
           ) : (
             <Link to="/login" className="btn">
               login
