@@ -7,15 +7,15 @@ const Navbar = () => {
   const commonLinks = [
     { id: 1, text: "Home", path: "/" },
     { id: 2, text: "Instructors", path: "/instructors" },
-    { id: 2, text: "Classes", path: "/classes" },
+    { id: 3, text: "Classes", path: "/classes" },
   ];
-  const privateLinks = [{ id: 1, text: "Dashboard", path: "/dashboard" }];
+  const privateLinks = [{ id: 4, text: "Dashboard", path: "/dashboard" }];
 
   const links = user ? [...commonLinks, ...privateLinks] : commonLinks;
 
   const linksJSX = links.map(({ id, text, path }) => (
-    <li>
-      <NavLink to={path} key={id}>
+    <li key={id}>
+      <NavLink to={path} >
         {text}
       </NavLink>
     </li>
