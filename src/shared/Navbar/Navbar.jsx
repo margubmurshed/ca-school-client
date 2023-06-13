@@ -11,6 +11,7 @@ const Navbar = () => {
   const handleLogOut = async () => {
     try {
       await logOut();
+      localStorage.removeItem("access-token")
       Swal.fire("Success!", "Signed Out Successfully!", "success");
     } catch (err) {
       setUserLoading(false);
@@ -73,9 +74,9 @@ const Navbar = () => {
         <div className="navbar-end space-x-1">
           {user ? (
             <>
-              <div className="avatar">
+              <div className="avatar" title={user?.email}>
                 <div className="w-12 rounded-full">
-                  <img src="https://img.freepik.com/free-photo/man-wearing-t-shirt-gesturing_23-2149393645.jpg" />
+                  <img src={user?.photoURL || "https://img.freepik.com/free-photo/man-wearing-t-shirt-gesturing_23-2149393645.jpg"} />
                 </div>
               </div>
               <button

@@ -1,15 +1,18 @@
 import React from "react";
 import useClasses from "../../hooks/useClasses";
 import SingleClassCard from "../../Components/SingleClassCard/SingleClassCard";
+import useAuth from "../../hooks/useAuth";
 
 const Classes = () => {
   const [classes, classesLoading] = useClasses();
+  const { admin, adminLoading, instructor, instructorLoading } = useAuth();
+
   return (
     <section className="container mx-auto p-5 my-16">
       <h2 className="text-center mb-10 text-4xl font-bold uppercase">
         Popular <span className="text-ca-primary">Classes</span>
       </h2>
-      {classesLoading ? (
+      {(classesLoading || adminLoading || instructorLoading) ? (
         <div className="flex justify-center items-center h-[500px]">
           <span className="loading loading-spinner loading-lg text-ca-primary"></span>
         </div>
@@ -24,7 +27,7 @@ const Classes = () => {
                 (b.total_seats - b.available_seats)
             )
             .map((classItem) => (
-              <SingleClassCard classItem={classItem} key={classItem._id} />
+              <SingleClassCard classItem={classItem} key={classItem._id} admin={admin} instructor={instructor}/>
             ))}
         </div>
       )}

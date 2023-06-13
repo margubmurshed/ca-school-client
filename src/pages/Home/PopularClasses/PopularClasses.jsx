@@ -1,16 +1,21 @@
 import { Link } from "react-router-dom";
 import useClasses from "../../../hooks/useClasses";
 import SingleClassCard from "../../../Components/SingleClassCard/SingleClassCard";
+import useAuth from "../../../hooks/useAuth";
+import useAdmin from "../../../hooks/useAdmin";
+import useInstructor from "../../../hooks/useInstructor";
 
 const PopularClasses = () => {
   const [classes, classesLoading] = useClasses();
+  const [admin, adminLoading] = useAdmin();
+  const [instructor, instructorLoading] = useInstructor();
   if (classes.length > 6) classes.length = 6;
   return (
     <section className="container mx-auto p-5 mt-16">
       <h2 className="text-center mb-10 text-4xl font-bold uppercase">
         Popular <span className="text-ca-primary">Classes</span>
       </h2>
-      {classesLoading ? (
+      {classesLoading || adminLoading || instructorLoading ? (
         <div className="flex justify-center items-center h-[500px]">
           <span className="loading loading-spinner loading-lg text-ca-primary"></span>
         </div>
@@ -25,7 +30,12 @@ const PopularClasses = () => {
                 (b.total_seats - b.available_seats)
             )
             .map((classItem) => (
-              <SingleClassCard classItem={classItem} key={classItem._id} />
+              <SingleClassCard
+                classItem={classItem}
+                key={classItem._id}
+                admin={admin}
+                instructor={instructor}
+              />
             ))}
         </div>
       )}
