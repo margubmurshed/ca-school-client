@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Navigate, createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/Home/Home";
 import Instructors from "../pages/Instructors/Instructors";
@@ -8,6 +8,9 @@ import Login from "../pages/Login/Login";
 import NotFound from "../pages/NotFound/NotFound";
 import PrivateRoute from "../routes/PrivateRoute";
 import DashboardLayout from "../layouts/DashboardLayout";
+import SelectedClasses from "../pages/Dashboard/SelectedClasses/SelectedClasses"
+import EnrolledClasses from "../pages/Dashboard/EnrolledClasses/EnrolledClasses"
+import StudentRoute from "./StudentRoute";
 
 export const router = createBrowserRouter([
   {
@@ -26,6 +29,10 @@ export const router = createBrowserRouter([
             <DashboardLayout />
           </PrivateRoute>
         ),
+        children: [
+          {path: "/dashboard/selected-classes", element: <StudentRoute><SelectedClasses/></StudentRoute>},
+          {path: "/dashboard/enrolled-classes", element: <StudentRoute><EnrolledClasses/></StudentRoute>},
+        ]
       },
     ],
   },

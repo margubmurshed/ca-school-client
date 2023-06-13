@@ -15,7 +15,8 @@ const SingleClassCard = ({ classItem, admin, instructor }) => {
         name: classItem.name,
         instructor: classItem.instructor,
         price: classItem.price,
-        image: classItem.image
+        image: classItem.image,
+        email: auth.user.email
       }
       try{
         const result = await axiosSecure.post("/selections", data, {

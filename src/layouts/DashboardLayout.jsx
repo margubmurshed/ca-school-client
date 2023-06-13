@@ -44,12 +44,15 @@ const DashboardLayout = () => {
         <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content pt-20 lg:pt-5">
           {!adminLoading && !instructorLoading ? (
             <>
-            <h2 className="text-xl font-semibold text-center mb-5">{admin ? "Admin" : instructor ? "Instructor": "Student"} Dashboard</h2>
-            {links.map(({ id, text, path }) => (
-              <li key={id}>
-                <Link to={path}>{text}</Link>
-              </li>
-            ))}
+              <h2 className="text-xl font-semibold text-center mb-5">
+                {admin ? "Admin" : instructor ? "Instructor" : "Student"}
+                Dashboard
+              </h2>
+              {links.map(({ id, text, path }) => (
+                <li key={id}>
+                  <Link to={path}>{text}</Link>
+                </li>
+              ))}
             </>
           ) : (
             <div className="flex justify-center items-center h-[500px]">
