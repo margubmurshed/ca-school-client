@@ -4,7 +4,7 @@ import SingleClassCard from "../../Components/SingleClassCard/SingleClassCard";
 import useAuth from "../../hooks/useAuth";
 
 const Classes = () => {
-  const [classes, classesLoading] = useClasses();
+  const [classes, classesLoading] = useClasses("approved");
   const { admin, adminLoading, instructor, instructorLoading } = useAuth();
 
   return (

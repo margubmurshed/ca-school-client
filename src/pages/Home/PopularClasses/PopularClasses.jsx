@@ -6,7 +6,7 @@ import useAdmin from "../../../hooks/useAdmin";
 import useInstructor from "../../../hooks/useInstructor";
 
 const PopularClasses = () => {
-  const [classes, classesLoading] = useClasses();
+  const [classes, classesLoading] = useClasses("approved");
   const [admin, adminLoading] = useAdmin();
   const [instructor, instructorLoading] = useInstructor();
   if (classes.length > 6) classes.length = 6;
