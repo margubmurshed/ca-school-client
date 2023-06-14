@@ -45,8 +45,7 @@ const DashboardLayout = () => {
           {!adminLoading && !instructorLoading ? (
             <>
               <h2 className="text-xl font-semibold text-center mb-5">
-                {admin ? "Admin" : instructor ? "Instructor" : "Student"}
-                Dashboard
+                {admin ? "Admin" : instructor ? "Instructor" : "Student"} Dashboard
               </h2>
               {links.map(({ id, text, path }) => (
                 <li key={id}>

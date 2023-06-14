@@ -11,6 +11,7 @@ import DashboardLayout from "../layouts/DashboardLayout";
 import SelectedClasses from "../pages/Dashboard/SelectedClasses/SelectedClasses"
 import EnrolledClasses from "../pages/Dashboard/EnrolledClasses/EnrolledClasses"
 import StudentRoute from "./StudentRoute";
+import Payment from "../pages/Dashboard/Payment/Payment";
 
 export const router = createBrowserRouter([
   {
@@ -30,8 +31,9 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         children: [
-          {path: "/dashboard/selected-classes", element: <StudentRoute><SelectedClasses/></StudentRoute>},
-          {path: "/dashboard/enrolled-classes", element: <StudentRoute><EnrolledClasses/></StudentRoute>},
+          {path: "selected-classes", element: <StudentRoute><SelectedClasses/></StudentRoute>},
+          {path: "enrolled-classes", element: <StudentRoute><EnrolledClasses/></StudentRoute>},
+          {path: "payment", element: <StudentRoute><Payment/></StudentRoute>},
         ]
       },
     ],

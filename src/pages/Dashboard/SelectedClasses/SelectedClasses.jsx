@@ -5,6 +5,7 @@ import useAuth from "../../../hooks/useAuth";
 import { BsFillTrashFill } from "react-icons/bs";
 import { AiFillDollarCircle } from "react-icons/ai";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const SelectedClasses = () => {
   const axiosSecure = useAxiosSecure();
@@ -64,7 +65,7 @@ const SelectedClasses = () => {
         Selected <span className="text-ca-primary">Classes</span>
       </h2>
       <div className="space-y-5 md:w-3/4 mx-auto">
-        {selectedClasses.map((item) => (
+        {selectedClasses.length? selectedClasses.map((item) => (
           <div
             className="card lg:card-side bg-base-100 shadow-xl"
             key={item._id}
@@ -92,13 +93,13 @@ const SelectedClasses = () => {
                 >
                   <BsFillTrashFill size={20} /> Delete
                 </button>
-                <button className="btn btn-primary btn-sm">
+                <Link to="/dashboard/payment" state={{item}} className="btn btn-primary btn-sm">
                   <AiFillDollarCircle size={20} /> Pay Now
-                </button>
+                </Link>
               </div>
             </div>
           </div>
-        ))}
+        )) : <p className='font-thin h-[400px] flex items-center justify-center'>No Enrollments Done Yet</p>}
       </div>
     </section>
   );
