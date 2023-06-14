@@ -12,7 +12,7 @@ const Signup = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { user, setUserLoading, createEmailPassUser, updateUser } =
+  const { user, setUserLoading, createEmailPassUser, updateUser, logOut } =
     useContext(authContext);
   const navigate = useNavigate();
   const handleUserSignup = async (data) => {
@@ -33,7 +33,7 @@ const Signup = () => {
     }
   };
 
-  if (user) return <Navigate to="/" />;
+  if (user && user.displayName) return <Navigate to="/" />;
 
   return (
     <section>

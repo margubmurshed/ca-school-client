@@ -31,7 +31,7 @@ const Login = () => {
     }
   };
 
-  if (user) return <Navigate to="/" />;
+  if (user && user.displayName) return <Navigate to="/" />;
   return (
     <section>
       <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-5 md:place-items-center items-center p-5">

@@ -42,7 +42,7 @@ const AuthProvider = ({ children }) => {
 
           // save user
           const user = {
-            name: currentUser?.displayName,
+            name: currentUser?.displayName || "Anonoymous",
             email: currentUser?.email,
             role: "student",
           };
