@@ -2,7 +2,7 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const Checkout = ({ clientSecret, classId, selectionId, amount }) => {
@@ -11,6 +11,7 @@ const Checkout = ({ clientSecret, classId, selectionId, amount }) => {
   const elements = useElements();
   const navigate = useNavigate();
   const axiosSecure = useAxiosSecure();
+  const location = useLocation();
   const [processing, setProcessing] = useState(false);
 
   const handleSubmit = async (event) => {
@@ -91,7 +92,9 @@ const Checkout = ({ clientSecret, classId, selectionId, amount }) => {
       )
         {
             Swal.fire("Success!", "Payment Done Successfully!", "success");
-            navigate("/dashboard/enrolled-classes")
+            navigate("/dashboard/enrolled-classes");
+            location.state = {};
+            
         };
 
       setProcessing(false);

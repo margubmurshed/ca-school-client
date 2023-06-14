@@ -14,7 +14,7 @@ const DashboardLayout = () => {
 
   const instructorLinks = [
     { id: 3, text: "Add Class", path: "/dashboard/add-class" },
-    { id: 4, text: "My Classes", path: "/dashboard/classes" },
+    { id: 4, text: "My Classes", path: "/dashboard/my-classes" },
   ];
 
   const adminLinks = [

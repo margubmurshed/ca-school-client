@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import { loadStripe } from "@stripe/stripe-js";
 import {
   CardElement,
@@ -36,7 +36,8 @@ const Payment = () => {
       .then((res) => setClientSecret(res.data.clientSecret));
   }, []);
 
-  const item = location.state.item;
+  const item = location?.state?.item;
+  if(!item) return <Navigate to="/dashboard/selected-classes"/>
   return (
     <div className="w-full h-full p-5">
       {clientSecret && (
