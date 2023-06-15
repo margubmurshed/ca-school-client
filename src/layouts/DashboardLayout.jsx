@@ -2,6 +2,7 @@ import React from "react";
 import { Outlet, Link } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstructor";
+import {FaBars} from "react-icons/fa"
 
 const DashboardLayout = () => {
   const [admin, adminLoading] = useAdmin();
@@ -28,15 +29,15 @@ const DashboardLayout = () => {
   else links = studentLinks;
 
   return (
-    <div className="drawer lg:drawer-open z-10">
+    <div className="drawer lg:drawer-open z-10 relative">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col items-center justify-center">
         {!adminLoading && !instructorLoading && <Outlet />}
         <label
           htmlFor="my-drawer-2"
-          className="btn btn-primary drawer-button lg:hidden"
+          className="btn btn-info btn-circle drawer-button lg:hidden fixed top-20 right-0"
         >
-          Open drawer
+          <FaBars size={20}/>
         </label>
       </div>
       <div className="drawer-side">

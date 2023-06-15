@@ -27,14 +27,15 @@ const AddClass = () => {
         available_seats: data.total_seats,
         status: "pending"
     }
+
+    const config = {
+      headers: {
+          email: auth.user.email,
+          Authorization: `Bearer ${localStorage.getItem("access-token")}`
+      }
+  }
     
-    const result = await axiosSecure.post("/classes", classData, {
-        headers: {
-            email: auth.user.email,
-            Authorization: `Bearer ${localStorage.getItem("access-token")}`
-        }
-    })
-    
+    const result = await axiosSecure.post("/classes", classData, config)
     if(result.data.insertedId){
         Swal.fire("Success!", "New Class Added!", "success");
         navigate("/dashboard/my-classes")

@@ -46,6 +46,7 @@ const Payment = () => {
             <Checkout
               clientSecret={clientSecret}
               classId={item.classId}
+              instructor_email={item.instructor_email}
               selectionId={item._id}
               amount={item.price}
             />

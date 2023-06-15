@@ -10,18 +10,37 @@ const ManageClasses = () => {
   const auth = useAuth();
   const axiosSecure = useAxiosSecure();
   const [disabledSelect, setDisabledSelect] = useState(false);
-  const handleStatusChange = async(e, id) => {
+
+
+  const handleStatusChange = async(e, item) => {
+
+    const config = {
+      headers: {
+          email: auth.user.email,
+          Authorization: `Bearer ${localStorage.getItem("access-token")}`
+      }
+  }
+
     setDisabledSelect(true);
     const status = e.target.value;
-    const result = await axiosSecure.patch(`/class/${id}/status?status=${status}`,null,{
-        headers: {
-            email: auth.user.email,
-            Authorization: `Bearer ${localStorage.getItem("access-token")}`
-        }
-    })
+    const result = await axiosSecure.patch(`/class/${item._id}/status?status=${status}`,null,config)
     if(result.data.modifiedCount) {
         Swal.fire("Success!", "Status Updated Successfully!", "success");
         refetch();
+    }
+
+    if(status === "pending" || status === "denied"){
+      const result2 = await axiosSecure.delete(`/instructor/${auth.user.email}`, config)
+      console.log(result2)
+    } else{
+      const result2 = await axiosSecure.post("/instructors", {
+        image: item.instructor_image || "https://img.freepik.com/free-icon/user_318-159711.jpg",
+        name: item.instructor,
+        email: item.instructor_email,
+        total_students:0,
+      }, config)
+  
+      console.log(result2)
     }
     setDisabledSelect(false);
   }
@@ -105,7 +124,7 @@ const ManageClasses = () => {
                         : ""
                     }`}
                     defaultValue={item.status}
-                    onChange={(e) => handleStatusChange(e, item._id)}
+                    onChange={(e) => handleStatusChange(e, item)}
                     disabled={disabledSelect}
                   >
                     <option value="approved">Approved</option>

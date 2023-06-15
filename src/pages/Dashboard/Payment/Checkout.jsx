@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
-const Checkout = ({ clientSecret, classId, selectionId, amount }) => {
+const Checkout = ({ clientSecret, classId, selectionId,instructor_email, amount }) => {
   const auth = useAuth();
   const stripe = useStripe();
   const elements = useElements();
@@ -13,7 +13,6 @@ const Checkout = ({ clientSecret, classId, selectionId, amount }) => {
   const axiosSecure = useAxiosSecure();
   const location = useLocation();
   const [processing, setProcessing] = useState(false);
-
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -50,8 +49,8 @@ const Checkout = ({ clientSecret, classId, selectionId, amount }) => {
         }
       );
       const totalStudentsResult = await axiosSecure.put(
-        `/instructor/${classId}/total-students`,
-        null,
+        `/instructor/total-students`,
+        {instructor_email},
         {
           headers: {
             email: auth.user.email,
@@ -83,7 +82,7 @@ const Checkout = ({ clientSecret, classId, selectionId, amount }) => {
           Authorization: `Bearer ${localStorage.getItem("access-token")}`,
         },
       });
-
+      
       if (
         availableSeatsResult.data.modifiedCount &&
         totalStudentsResult.data.modifiedCount &&
@@ -94,7 +93,6 @@ const Checkout = ({ clientSecret, classId, selectionId, amount }) => {
             Swal.fire("Success!", "Payment Done Successfully!", "success");
             navigate("/dashboard/enrolled-classes");
             location.state = {};
-            
         };
 
       setProcessing(false);
