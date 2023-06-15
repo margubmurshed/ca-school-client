@@ -46,7 +46,7 @@ const SingleClassCard = ({ classItem, admin, instructor }) => {
     }
   }
   return (
-    <div className="card bg-base-100 shadow-xl rounded-none">
+    <div className={`card bg-base-100 shadow-xl rounded-none ${classItem?.available_seats ? "" : "bg-red-100"}`}>
       <figure>
         <img src={classItem?.image} alt="class_image" className="w-full h-64 object-cover"/>
       </figure>
