@@ -2,26 +2,64 @@ import React from "react";
 import { Outlet, Link } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstructor";
-import {FaBars} from "react-icons/fa"
+import { FaBars, FaHandPointer } from "react-icons/fa";
+import { RiMoneyDollarCircleFill } from "react-icons/ri";
+import { MdOutlineHistory, MdClass, MdManageAccounts } from "react-icons/md";
+import { IoAddCircle } from "react-icons/io5";
 
 const DashboardLayout = () => {
   const [admin, adminLoading] = useAdmin();
   const [instructor, instructorLoading] = useInstructor();
 
   const studentLinks = [
-    { id: 1, text: "Selected Classes", path: "/dashboard/selected-classes" },
-    { id: 2, text: "Enrolled Classes", path: "/dashboard/enrolled-classes" },
-    { id: 7, text: "Payment History", path: "/dashboard/payment-history" },
+    {
+      id: 1,
+      text: "Selected Classes",
+      path: "/dashboard/selected-classes",
+      icon: <FaHandPointer size={20} />,
+    },
+    {
+      id: 2,
+      text: "Enrolled Classes",
+      path: "/dashboard/enrolled-classes",
+      icon: <RiMoneyDollarCircleFill size={20} />,
+    },
+    {
+      id: 7,
+      text: "Payment History",
+      path: "/dashboard/payment-history",
+      icon: <MdOutlineHistory size={20} />,
+    },
   ];
 
   const instructorLinks = [
-    { id: 3, text: "Add Class", path: "/dashboard/add-class" },
-    { id: 4, text: "My Classes", path: "/dashboard/my-classes" },
+    {
+      id: 3,
+      text: "Add Class",
+      path: "/dashboard/add-class",
+      icon: <IoAddCircle size={20} />,
+    },
+    {
+      id: 4,
+      text: "My Classes",
+      path: "/dashboard/my-classes",
+      icon: <MdClass size={20} />,
+    },
   ];
 
   const adminLinks = [
-    { id: 5, text: "Manage Classes", path: "/dashboard/manage-classes" },
-    { id: 6, text: "Manage Users", path: "/dashboard/manage-users" },
+    {
+      id: 5,
+      text: "Manage Classes",
+      path: "/dashboard/manage-classes",
+      icon: <MdClass size={20} />,
+    },
+    {
+      id: 6,
+      text: "Manage Users",
+      path: "/dashboard/manage-users",
+      icon: <MdManageAccounts size={20} />,
+    },
   ];
 
   let links = [];
@@ -38,20 +76,23 @@ const DashboardLayout = () => {
           htmlFor="my-drawer-2"
           className="btn btn-info btn-circle drawer-button lg:hidden fixed top-20 right-0"
         >
-          <FaBars size={20}/>
+          <FaBars size={20} />
         </label>
       </div>
       <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content pt-20 lg:pt-5">
+        <ul className="menu p-4 w-80 h-full bg-base-300 text-base-content pt-20 lg:pt-5">
           {!adminLoading && !instructorLoading ? (
             <>
               <h2 className="text-xl font-semibold text-center mb-5">
-                {admin ? "Admin" : instructor ? "Instructor" : "Student"} Dashboard
+                {admin ? "Admin" : instructor ? "Instructor" : "Student"}{" "}
+                Dashboard
               </h2>
-              {links.map(({ id, text, path }) => (
+              {links.map(({ id, text, path, icon }) => (
                 <li key={id}>
-                  <Link to={path}>{text}</Link>
+                  <Link to={path}>
+                    {icon} {text}
+                  </Link>
                 </li>
               ))}
             </>

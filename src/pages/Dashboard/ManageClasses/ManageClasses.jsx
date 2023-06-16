@@ -133,7 +133,7 @@ const ManageClasses = () => {
                   </select>
                 </td>
                 <th>
-                  <button className="btn btn-secondary btn-xs" onClick={() => handleSendFeedback(item._id)} disabled={disabledSelect || item.status==='pending'}>Feedback</button>
+                  <button className="btn btn-secondary btn-xs" onClick={() => handleSendFeedback(item._id)} disabled={disabledSelect || item.status!=='denied'}>Feedback</button>
                 </th>
               </tr>
             ))}

@@ -39,7 +39,7 @@ const MyClasses = () => {
         {classes.length ? (
           classes.map((item) => (
             <div
-              className={`card lg:card-side bg-base-100 shadow-xl ${item.status === "approved" ? "border border-green-500": ""}`}
+              className={`card lg:card-side bg-base-100 rounded-none shadow-xl ${item.status === "approved" ? "border border-green-500": ""}`}
               key={item._id}
             >
               <figure className="lg:w-1/3 h-[200px]">

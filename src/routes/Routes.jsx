@@ -38,6 +38,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         children: [
+          {index: true, element: <p className="font-thin flex items-center justify-center">Welcome to the dashboard</p>},
           {path: "selected-classes", element: <StudentRoute><SelectedClasses/></StudentRoute>},
           {path: "enrolled-classes", element: <StudentRoute><EnrolledClasses/></StudentRoute>},
           {path: "payment", element: <StudentRoute><Payment/></StudentRoute>},

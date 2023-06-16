@@ -43,7 +43,7 @@ const AddClass = () => {
   };
   return (
     <section className="p-5">
-      <div className="shadow-lg md:w-[500px] p-5 bg-gray-200">
+      <div className="shadow-lg md:w-[500px] p-5 bg-base-200">
         <form onSubmit={handleSubmit(handleAddClass)}>
           <h2 className="text-center text-2xl font-bold uppercase">
             Add New Class

@@ -1,36 +1,15 @@
 import React from "react";
-import logo from '../../assets/Images/cricketangon_cricket_school_logo.png'
+import { Link } from "react-router-dom";
+import logo from "../../assets/Images/cricketangon_cricket_school_logo.png";
 
 const Footer = () => {
   return (
-    <footer>
-      <footer className="footer p-10 bg-base-200 text-base-content">
-        <div>
-          <span className="footer-title">Services</span>
-          <a className="link link-hover">Branding</a>
-          <a className="link link-hover">Design</a>
-          <a className="link link-hover">Marketing</a>
-          <a className="link link-hover">Advertisement</a>
+    <footer className="footer p-10 bg-base-200 text-base-content">
+      <div className="flex flex-col items-start md:items-center gap-10 bg-base-200 text-base-content border-base-300">
+        <div className="items-center grid-flow-col -mb-5">
+          <img src={logo} alt="logo" className="w-40 md:w-60" />
         </div>
-        <div>
-          <span className="footer-title">Company</span>
-          <a className="link link-hover">About us</a>
-          <a className="link link-hover">Contact</a>
-          <a className="link link-hover">Jobs</a>
-          <a className="link link-hover">Press kit</a>
-        </div>
-        <div>
-          <span className="footer-title">Legal</span>
-          <a className="link link-hover">Terms of use</a>
-          <a className="link link-hover">Privacy policy</a>
-          <a className="link link-hover">Cookie policy</a>
-        </div>
-      </footer>
-      <div className="footer px-10 py-4 border-t bg-base-200 text-base-content border-base-300">
-        <div className="items-center grid-flow-col">
-          <img src={logo} alt="logo" className="w-40"/>
-        </div>
-        <div className="md:place-self-center md:justify-self-end">
+        <div className="md:place-self-center md:justify-self-end text-ca-primary ">
           <div className="grid grid-flow-col gap-4">
             <a>
               <svg
@@ -67,6 +46,26 @@ const Footer = () => {
             </a>
           </div>
         </div>
+      </div>
+      <div>
+        <span className="footer-title">Services</span>
+        <Link to="/" className="link link-hover">Home</Link>
+        <Link to="/" className="link link-hover">About</Link>
+        <Link to="/" className="link link-hover">Contact</Link>
+        <Link to="/" className="link link-hover">Profile</Link>
+      </div>
+      <div>
+        <span className="footer-title">Student Links</span>
+        <Link to="/instructors" className="link link-hover">Instructors</Link>
+        <Link to="/classes" className="link link-hover">Classes</Link>
+        <Link to="/dashboard/enrolled-classes" className="link link-hover">Enrolled Classes</Link>
+        <Link to="/dashboard/selected-classes" className="link link-hover">Selected Classes</Link>
+      </div>
+      <div>
+        <span className="footer-title">Legal</span>
+        <Link to="/" className="link link-hover">Terms and conditions</Link>
+        <Link to="/" className="link link-hover">Privacy policy</Link>
+        <Link to="/" className="link link-hover">Cookie policy</Link>
       </div>
     </footer>
   );

@@ -35,7 +35,7 @@ const Login = () => {
   return (
     <section>
       <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-5 md:place-items-center items-center p-5">
-        <div className="shadow-lg md:w-[500px] p-5 bg-gray-200">
+        <div className="shadow-lg md:w-[500px] p-5 bg-base-200">
           <form onSubmit={handleSubmit(handleUserLogin)}>
             <h2 className="text-center text-2xl font-bold uppercase">Login</h2>
             <div className="form-control">
@@ -88,7 +88,7 @@ const Login = () => {
               <input type="submit" value="Login" className="btn btn-neutral" />
             </div>
           </form>
-          <Link to="/signup" className="link text-ca-primary block text-center mt-5">New to this website? Signup now</Link>
+          <Link to="/signup" className=" text-ca-primary block text-center mt-5">New to this website? Signup now</Link>
           <SocialLogin />
         </div>
         <div className="hidden lg:block">
