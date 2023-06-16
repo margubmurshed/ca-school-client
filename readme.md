@@ -1,8 +1,12 @@
-# Cricketangon Cricket School
+<h1 align="center">Cricketangon Cricket School</h1>
 
-An online cricket school that provides quality cricket tutorials at an affordable price.
+<p align="center">
+  An online cricket school that provides quality cricket tutorials at an affordable price.
+</p>
 
-**Website:** [abc.web.app](https://abc.web.app)
+<p align="center">
+  <strong>Website:</strong> [https://cricketangon-school.web.app/](https://cricketangon-school.web.app/)
+</p>
 
 ## Overview
 
