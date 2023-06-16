@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <strong>Website:</strong> [https://cricketangon-school.web.app/](https://cricketangon-school.web.app/)
+  <strong>Website:</strong> [https://cricketangon-school.web.app/]
 </p>
 
 ## Overview
