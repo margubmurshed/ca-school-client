@@ -7,7 +7,7 @@ const StartTeaching = () => {
             <img src={professorImg} alt="professor_image" />
             <div className='space-y-5 md:w-3/4'>
                 <h2 className='text-4xl capitalize font-bold'>Start Teaching Today!</h2>
-                <p className='font-thin text-xl'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid reiciendis cum odio vitae placeat vero fugiat eaque sint, ratione sed?</p>
+                <p className=' font-light text-lg'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid reiciendis cum odio vitae placeat vero fugiat eaque sint, ratione sed?</p>
                 <button className='btn bg-ca-primary hover:bg-ca-secondary text-white font-bold rounded-none'>Start Teaching</button>
             </div>
         </section>

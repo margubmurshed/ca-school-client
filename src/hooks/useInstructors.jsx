@@ -5,7 +5,7 @@ const useInstructors = () => {
     const {data = [], isLoading} = useQuery({
         queryKey: ['instructors'],
         queryFn: async() => {
-            const response = await axios.get("http://localhost:5000/instructors");
+            const response = await axios.get("https://ca-school-server-production.up.railway.app/instructors");
             return response.data;
         }
     })

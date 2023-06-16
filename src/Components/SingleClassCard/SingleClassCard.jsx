@@ -48,7 +48,7 @@ const SingleClassCard = ({ classItem, admin, instructor }) => {
   }
   return (
     <Fade triggerOnce>
-      <div className={`card bg-base-100 shadow-xl rounded-none ${classItem?.available_seats ? "" : "bg-red-100"}`}>
+      <div className={`card bg-base-100 shadow-xl rounded-none border-base-content border border-opacity-10 ${classItem?.available_seats ? "" : "bg-red-100"}`}>
       <figure>
         <img src={classItem?.image} alt="class_image" className="w-full h-64 object-cover"/>
       </figure>
@@ -57,7 +57,7 @@ const SingleClassCard = ({ classItem, admin, instructor }) => {
         <p className="text-gray-400">{classItem?.instructor}</p>
         <h2 className="card-title text-ca-primary font-bold">${classItem?.price}</h2>
         <div className="card-actions justify-between items-center">
-          <span className="badge badge-neutral badge-outline">Available Seats: {classItem?.available_seats}</span>
+          <span className="badge text-base-content border-base-content">Available Seats: {classItem?.available_seats}</span>
           <button className="btn bg-ca-primary text-white hover:bg-ca-secondary" onClick={() => handleSelect(classItem)} disabled={!classItem?.available_seats || admin || instructor}>Select</button>
         </div>
       </div>

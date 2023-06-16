@@ -52,7 +52,7 @@ const Navbar = () => {
     </li>
   ));
   return (
-    <header className="shadow-lg sticky top-0 z-20 w-full bg-white dark:bg-black">
+    <header className="shadow-lg sticky top-0 z-20 w-full bg-base-100">
       <div className="navbar bg-base-100 container mx-auto">
         <div className="navbar-start">
           <div className="dropdown z-10">

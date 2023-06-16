@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import axios from "axios";
 
 const useAxiosSecure = () => {
-  const axiosSecure = axios.create({ baseURL: "http://localhost:5000" });
+  const axiosSecure = axios.create({ baseURL: "https://ca-school-server-production.up.railway.app" });
 
   // Request interceptor
   useEffect(() => {

@@ -8,7 +8,7 @@ const useClasses = (status) => {
     const {data = [], isLoading, refetch} = useQuery({
         queryKey: ['classes', auth.user],
         queryFn: async() => {
-            const response = await axios.get(`http://localhost:5000/classes?status=${status}`);
+            const response = await axios.get(`https://ca-school-server-production.up.railway.app/classes?status=${status}`);
             return response.data;
         }
     })

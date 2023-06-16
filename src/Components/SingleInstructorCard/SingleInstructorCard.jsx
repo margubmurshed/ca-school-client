@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const SingleInstructorCard = ({ instructorItem }) => {
   return (
     <Fade triggerOnce>
-      <div className="card bg-gray-100 shadow-xl rounded-none border border-ca-dark border-opacity-10">
+      <div className="card bg-base-100 shadow-xl rounded-none border border-base-content border-opacity-10">
         <figure className="mt-5">
           <img
             src={instructorItem?.image}
@@ -17,7 +17,7 @@ const SingleInstructorCard = ({ instructorItem }) => {
           <h2 className="text-3xl font-bold">{instructorItem?.name}</h2>
           <p className="text-gray-400">{instructorItem?.email}</p>
           <div className="card-actions justify-between items-center mt-5">
-            <span className="badge badge-neutral badge-outline">
+            <span className="badge text-base-content border-base-content">
               Total Students: {instructorItem?.total_students}
             </span>
             <Link to={`/instructor/${instructorItem._id}`}>
