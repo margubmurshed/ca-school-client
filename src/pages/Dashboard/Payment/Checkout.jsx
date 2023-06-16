@@ -75,6 +75,7 @@ const Checkout = ({ clientSecret, classId, selectionId,instructor_email, amount 
         classId,
         amount,
         transactionId: response.paymentIntent.id,
+        date:new Date()
       };
       const paymentPushResult = await axiosSecure.post("/payments", payment, {
         headers: {

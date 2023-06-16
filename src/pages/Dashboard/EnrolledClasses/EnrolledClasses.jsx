@@ -16,6 +16,9 @@ const EnrolledClasses = () => {
           Authorization: localStorage.getItem("access-token"),
         },
       });
+      if(result.data.length){
+        result.data.sort((a,b) => new Date(b.date).getTime() - new Date(a.date))
+      }
       return result.data;
     },
   });
@@ -39,6 +42,7 @@ const EnrolledClasses = () => {
             className={`card bg-base-100 shadow-xl rounded-none ${
               classItem?.available_seats ? "" : "bg-red-100"
             }`}
+            key={classItem._id}
           >
             <figure>
               <img
@@ -57,11 +61,6 @@ const EnrolledClasses = () => {
               <h2 className="card-title text-ca-primary font-bold">
                 ${classItem?.price}
               </h2>
-              <div className="card-actions justify-between items-center">
-                <span className="badge badge-neutral badge-outline">
-                  Available Seats: {classItem?.available_seats}
-                </span>
-              </div>
             </div>
           </div>
         ))}

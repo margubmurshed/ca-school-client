@@ -99,7 +99,7 @@ const SelectedClasses = () => {
               </div>
             </div>
           </div>
-        )) : <p className='font-thin h-[400px] flex items-center justify-center'>No Enrollments Done Yet</p>}
+        )) : <p className='font-thin h-[400px] flex items-center justify-center'>No Class Selected Yet</p>}
       </div>
     </section>
   );

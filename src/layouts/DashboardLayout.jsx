@@ -11,7 +11,7 @@ const DashboardLayout = () => {
   const studentLinks = [
     { id: 1, text: "Selected Classes", path: "/dashboard/selected-classes" },
     { id: 2, text: "Enrolled Classes", path: "/dashboard/enrolled-classes" },
-    { id: 2, text: "Payment History", path: "/dashboard/payment-history" },
+    { id: 7, text: "Payment History", path: "/dashboard/payment-history" },
   ];
 
   const instructorLinks = [
