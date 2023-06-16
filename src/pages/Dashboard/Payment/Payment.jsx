@@ -40,8 +40,11 @@ const Payment = () => {
   if(!item) return <Navigate to="/dashboard/selected-classes"/>
   return (
     <div className="w-full h-full p-5">
+       <h2 className="text-center mb-10 text-4xl font-bold uppercase">
+        Pay Using <span className="text-ca-primary">Stripe</span>
+      </h2>
       {clientSecret && (
-        <div className="shadow-lg p-10 border">
+        <div className="shadow-lg p-10 border border-base-content border-opacity-10">
           <Elements stripe={stripePromise}>
             <Checkout
               clientSecret={clientSecret}

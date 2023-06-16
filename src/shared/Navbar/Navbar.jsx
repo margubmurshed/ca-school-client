@@ -56,7 +56,7 @@ const Navbar = () => {
       <div className="navbar bg-base-100 container mx-auto">
         <div className="navbar-start">
           <div className="dropdown z-10">
-            <label tabIndex={0} className="btn btn-ghost lg:hidden">
+            <label tabIndex={0} className="btn btn-ghost lg:hidden pr-0">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -79,7 +79,7 @@ const Navbar = () => {
               {linksJSX}
             </ul>
           </div>
-          <Link to="/" className="btn btn-ghost normal-case text-xl">
+          <Link to="/" className="btn btn-ghost pl-0 normal-case text-xl">
             <img src={logo} alt="logo" className=" w-36" />
           </Link>
         </div>

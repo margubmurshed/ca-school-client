@@ -65,41 +65,51 @@ const SelectedClasses = () => {
         Selected <span className="text-ca-primary">Classes</span>
       </h2>
       <div className="space-y-5 md:w-3/4 mx-auto">
-        {selectedClasses.length? selectedClasses.map((item) => (
-          <div
-            className="card lg:card-side bg-base-100 shadow-xl"
-            key={item._id}
-          >
-            <figure className="lg:w-1/3 h-[200px]">
-              <img
-                src={item.image}
-                alt="Album"
-                className="h-full w-full object-cover"
-              />
-            </figure>
-            <div className="card-body lg:w-2/3">
-              <h2 className="card-title">{item.name}</h2>
-              <p>
-                <b>Instructor : </b>
-                {item.instructor}
-              </p>
-              <p>
-                <b className="text-ca-primary">Price : </b>${item.price}
-              </p>
-              <div className="card-actions justify-end">
-                <button
-                  className="btn btn-error btn-sm"
-                  onClick={() => handleDeleteClass(item._id)}
-                >
-                  <BsFillTrashFill size={20} /> Delete
-                </button>
-                <Link to="/dashboard/payment" state={{item}} className="btn btn-primary btn-sm">
-                  <AiFillDollarCircle size={20} /> Pay Now
-                </Link>
+        {selectedClasses.length ? (
+          selectedClasses.map((item) => (
+            <div
+              className="card lg:card-side bg-base-100 shadow-xl rounded-none border-base-content border border-opacity-10"
+              key={item._id}
+            >
+              <figure className="lg:w-1/3 h-[200px]">
+                <img
+                  src={item.image}
+                  alt="Album"
+                  className="h-full w-full object-cover"
+                />
+              </figure>
+              <div className="card-body lg:w-2/3">
+                <h2 className="card-title">{item.name}</h2>
+                <p>
+                  <b>Instructor : </b>
+                  {item.instructor}
+                </p>
+                <p>
+                  <b className="text-ca-primary">Price : </b>${item.price}
+                </p>
+                <div className="card-actions justify-end">
+                  <button
+                    className="btn btn-error btn-sm"
+                    onClick={() => handleDeleteClass(item._id)}
+                  >
+                    <BsFillTrashFill size={20} /> Delete
+                  </button>
+                  <Link
+                    to="/dashboard/payment"
+                    state={{ item }}
+                    className="btn btn-primary btn-sm"
+                  >
+                    <AiFillDollarCircle size={20} /> Pay Now
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
-        )) : <p className='font-thin h-[400px] flex items-center justify-center'>No Class Selected Yet</p>}
+          ))
+        ) : (
+          <p className="font-thin h-[400px] flex items-center justify-center">
+            No Class Selected Yet
+          </p>
+        )}
       </div>
     </section>
   );
