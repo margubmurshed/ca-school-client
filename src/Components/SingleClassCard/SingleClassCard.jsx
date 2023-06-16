@@ -3,6 +3,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useAuth from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Fade } from "react-awesome-reveal";
 
 const SingleClassCard = ({ classItem, admin, instructor }) => {
   const axiosSecure = useAxiosSecure();
@@ -46,7 +47,8 @@ const SingleClassCard = ({ classItem, admin, instructor }) => {
     }
   }
   return (
-    <div className={`card bg-base-100 shadow-xl rounded-none ${classItem?.available_seats ? "" : "bg-red-100"}`}>
+    <Fade triggerOnce>
+      <div className={`card bg-base-100 shadow-xl rounded-none ${classItem?.available_seats ? "" : "bg-red-100"}`}>
       <figure>
         <img src={classItem?.image} alt="class_image" className="w-full h-64 object-cover"/>
       </figure>
@@ -60,6 +62,7 @@ const SingleClassCard = ({ classItem, admin, instructor }) => {
         </div>
       </div>
     </div>
+    </Fade>
   );
 };
 

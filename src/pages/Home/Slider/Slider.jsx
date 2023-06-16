@@ -13,6 +13,7 @@ import "swiper/css/navigation";
 // import required modules
 import { EffectCreative } from "swiper";
 import { Navigation } from "swiper";
+import { Slide } from "react-awesome-reveal";
 
 const Slider = () => {
   return (
@@ -42,6 +43,7 @@ const Slider = () => {
               className="w-full h-full object-cover"
             />
             <div className="absolute top-0 left-0 right-0 bottom-0 bg-black bg-opacity-80 p-10 text-white flex flex-col justify-center">
+              <Slide triggerOnce>
               <div className="md:w-3/4 mx-auto text-center space-y-5">
                 <h2 className="text-4xl md:text-5xl font-bold text-center uppercase">
                   <span className="text-ca-primary">World Class</span> Coaches
@@ -53,13 +55,16 @@ const Slider = () => {
                   top-level coaching at an CA Cricket School.
                 </p>
               </div>
+              </Slide>
             </div>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="w-full h-[500px] relative select-none">
+
             <img src={image1} alt="batting image" className="w-full h-full object-cover" />
             <div className="absolute top-0 left-0 right-0 bottom-0 bg-black bg-opacity-80 p-10 text-white flex flex-col justify-center">
+              <Slide triggerOnce>
               <div className="md:w-3/4 mx-auto text-center space-y-5">
                 <h2 className="text-4xl md:text-5xl font-bold text-center uppercase">
                 learn <span className="text-ca-primary">batting</span> techniques
@@ -70,13 +75,16 @@ const Slider = () => {
                   top-level coaching at an CA Cricket School.
                 </p>
               </div>
+              </Slide>
             </div>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="w-full h-[500px] relative select-none">
+
             <img src={image3} alt="" className="w-full h-full object-cover" />
             <div className="absolute top-0 left-0 right-0 bottom-0 bg-black bg-opacity-80 p-10 text-white flex flex-col justify-center">
+              <Slide triggerOnce>
               <div className="md:w-3/4 mx-auto text-center space-y-5">
                 <h2 className="text-4xl md:text-5xl font-bold text-center uppercase">
                 learn <span className="text-ca-primary">pace bowling</span> techniques
@@ -87,13 +95,16 @@ const Slider = () => {
                   top-level coaching at an CA Cricket School.
                 </p>
               </div>
+              </Slide>
             </div>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="w-full h-[500px] relative select-none">
+
             <img src={image4} alt="" className="w-full h-full object-cover" />
             <div className="absolute top-0 left-0 right-0 bottom-0 bg-black bg-opacity-80 p-10 text-white flex flex-col justify-center">
+              <Slide triggerOnce>
               <div className="md:w-3/4 mx-auto text-center space-y-5">
                 <h2 className="text-4xl md:text-5xl font-bold text-center uppercase">
                 learn <span className="text-ca-primary">keeping</span> techniques
@@ -104,6 +115,7 @@ const Slider = () => {
                   top-level coaching at an CA Cricket School.
                 </p>
               </div>
+              </Slide>
             </div>
           </div>
         </SwiperSlide>
