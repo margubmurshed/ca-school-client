@@ -17,7 +17,7 @@ const PopularClasses = () => {
       </h2>
       {classesLoading || adminLoading || instructorLoading ? (
         <div className="flex justify-center items-center h-[500px]">
-          <span className="loading loading-spinner loading-lg text-ca-primary"></span>
+          <span className="loading loading-spinner loading-lg text-ca-primary dark:text-slate-400 "></span>
         </div>
       ) : (
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">

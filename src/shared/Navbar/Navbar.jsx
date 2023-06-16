@@ -1,17 +1,23 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import logo from "../../assets/Images/cricketangon_cricket_school_logo.png";
 import { NavLink, Link } from "react-router-dom";
 import { authContext } from "../../providers/AuthProvider";
 import { FiLogOut } from "react-icons/fi";
+import { BsFillSunFill,BsFillMoonFill } from "react-icons/bs";
 import Swal from "sweetalert2";
 
 const Navbar = () => {
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   const { user, setUserLoading, logOut } = useContext(authContext);
+
+  useEffect(() => {
+    document.querySelector("html").setAttribute("data-theme", theme)
+  }, [theme])
 
   const handleLogOut = async () => {
     try {
       await logOut();
-      localStorage.removeItem("access-token")
+      localStorage.removeItem("access-token");
       Swal.fire("Success!", "Signed Out Successfully!", "success");
     } catch (err) {
       setUserLoading(false);
@@ -22,6 +28,15 @@ const Navbar = () => {
       });
     }
   };
+  const handleThemeChange = e => {
+      if(e.target.checked){
+        setTheme("light")
+        localStorage.setItem("theme", "light");
+      } else{
+        setTheme("dark")
+        localStorage.setItem("theme", "dark");
+      }
+  }
   const commonLinks = [
     { id: 1, text: "Home", path: "/" },
     { id: 2, text: "Instructors", path: "/instructors" },
@@ -37,7 +52,7 @@ const Navbar = () => {
     </li>
   ));
   return (
-    <header className="shadow-lg sticky top-0 z-20 bg-white">
+    <header className="shadow-lg sticky top-0 z-20 w-full bg-white dark:bg-black">
       <div className="navbar bg-base-100 container mx-auto">
         <div className="navbar-start">
           <div className="dropdown z-10">
@@ -71,12 +86,22 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{linksJSX}</ul>
         </div>
-        <div className="navbar-end space-x-1">
+        <div className="navbar-end space-x-2">
+          <label className="swap swap-rotate">
+            <input type="checkbox" onChange={handleThemeChange} checked={theme === "light"}/>
+              <BsFillSunFill className="swap-on text-yellow-400" size={30} />
+              <BsFillMoonFill className="swap-off" size={30} />
+          </label>
           {user ? (
             <>
               <div className="avatar" title={user?.email}>
                 <div className="w-12 rounded-full">
-                  <img src={user?.photoURL || "https://img.freepik.com/free-photo/man-wearing-t-shirt-gesturing_23-2149393645.jpg"} />
+                  <img
+                    src={
+                      user?.photoURL ||
+                      "https://img.freepik.com/free-photo/man-wearing-t-shirt-gesturing_23-2149393645.jpg"
+                    }
+                  />
                 </div>
               </div>
               <button
