@@ -32,7 +32,7 @@ const AuthProvider = ({ children }) => {
       if (currentUser) {
         try {
           const JWTResponse = await axios.post(
-            "https://ca-school-server-production.up.railway.app/jwt",
+            "https://ca-school-server.onrender.com/jwt",
             currentUser.email
           );
           if (JWTResponse.data) {
@@ -46,7 +46,7 @@ const AuthProvider = ({ children }) => {
             email: currentUser?.email,
             role: "student",
           };
-          await axiosSecure.post("https://ca-school-server-production.up.railway.app/users", user);
+          await axiosSecure.post("/users", user);
 
           // set admin and instructor
           const adminResponse = await axiosSecure.get("/verifyAdmin", {
