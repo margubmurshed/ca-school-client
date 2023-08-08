@@ -4,6 +4,7 @@ import PopularClasses from "./PopularClasses/PopularClasses";
 import StartTeaching from "./StartTeaching/StartTeaching";
 import PopularInstructors from "./PopularInstructors/PopularInstructors";
 import Stats from "./Stats/Stats";
+import JoinCommunity from "./JoinCommunity/JoinCommunity";
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <PopularClasses />
       <PopularInstructors />
       <Stats />
+      <JoinCommunity />
       <StartTeaching />
     </div>
   );
