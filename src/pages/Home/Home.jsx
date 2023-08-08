@@ -3,6 +3,7 @@ import Slider from "./Slider/Slider";
 import PopularClasses from "./PopularClasses/PopularClasses";
 import StartTeaching from "./StartTeaching/StartTeaching";
 import PopularInstructors from "./PopularInstructors/PopularInstructors";
+import Stats from "./Stats/Stats";
 
 const Home = () => {
   return (
@@ -10,6 +11,7 @@ const Home = () => {
       <Slider />
       <PopularClasses />
       <PopularInstructors />
+      <Stats />
       <StartTeaching />
     </div>
   );
