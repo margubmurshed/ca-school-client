@@ -6,7 +6,7 @@ const JoinCommunity = () => {
       <h2 className="text-center mb-10 text-4xl font-bold uppercase">
         Join Our <span className="text-ca-primary">Community</span>
       </h2>
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
         <div className="space-y-5">
           <p>
             Cricketangon is for everyone and different from everyone. You can
