@@ -6,6 +6,7 @@ import PopularInstructors from "./PopularInstructors/PopularInstructors";
 import Stats from "./Stats/Stats";
 import JoinCommunity from "./JoinCommunity/JoinCommunity";
 import Testimonials from "./Testimonials/Testimonials";
+import Partners from "./Partners/Partners";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <Stats />
       <JoinCommunity />
       <Testimonials />
+      <Partners />
       <StartTeaching />
     </div>
   );
