@@ -38,3 +38,6 @@ Cricketangon Cricket School is an online platform dedicated to providing top-not
 - Firebase ![Firebase Badge](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
 - Tanstack Query ![Tanstack Query Badge](https://img.shields.io/badge/Tanstack_Query-333333?style=for-the-badge&logo=react&logoColor=white)
 - Stripe ![Stripe Badge](https://img.shields.io/badge/Stripe-008CDD?style=for-the-badge&logo=stripe&logoColor=white)
+
+Admin Email : abcd1234@gmail.com
+Admin Password : Mm9@322020
